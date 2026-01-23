@@ -59,3 +59,71 @@ const Resume = ({ resumeData }) => {
               </a>
             )}
           </div>
+
+          {/* Summary */}
+          {summary && (
+            <>
+              <h2 className="text-xl font-semibold mt-6 text-gray-100">Summary</h2>
+              <p className="text-gray-200">{summary}</p>
+            </>
+          )}
+
+          {/* Experience */}
+          {experience.companyName && (
+            <>
+              <h2 className="text-xl font-semibold mt-6 text-gray-100">Experience</h2>
+              <p className="text-gray-200 font-medium">
+                {experience.companyName} - {experience.jobTitle || ""}
+              </p>
+              <p className="text-gray-400">{experience.duration || ""}</p>
+              <p className="text-gray-200">{experience.description || ""}</p>
+            </>
+          )}
+
+          {/* Education */}
+          {education.schoolName && (
+            <>
+              <h2 className="text-xl font-semibold mt-6 text-gray-100">Education</h2>
+              <p className="text-gray-200 font-medium">{education.schoolName}</p>
+              <p className="text-gray-400">
+                {education.degree}{" "}
+                {education.fieldOfStudy ? `- ${education.fieldOfStudy}` : ""}
+              </p>
+              <p className="text-gray-400">{education.graduationYear || ""}</p>
+            </>
+          )}
+
+          {/* Projects */}
+          {projects.length > 0 && projects.some((p) => p.title || p.description) && (
+            <>
+              <h2 className="text-xl font-semibold mt-6 text-gray-100">Projects</h2>
+              {projects.map((project, index) => (
+                <div key={index} className="mt-2">
+                  <p className="text-gray-200 font-medium">
+                    {project.title || "Untitled Project"}
+                  </p>
+                  {project.description && (
+                    <p className="text-gray-300">{project.description}</p>
+                  )}
+                  {project.technologies?.length > 0 && (
+                    <p className="text-gray-300">
+                      <strong className="text-gray-200">Technologies:</strong>{" "}
+                      {project.technologies.filter(Boolean).join(", ")}
+                    </p>
+                  )}
+                  {project.gitHubLink && (
+                    <p className="text-gray-300">
+                      <a
+                        href={project.gitHubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:underline"
+                      >
+                        GitHub
+                      </a>
+                    </p>
+                  )}
+                </div>
+              ))}
+            </>
+          )}
