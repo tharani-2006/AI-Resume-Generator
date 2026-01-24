@@ -81,3 +81,177 @@ const About = () => {
           </motion.div>
         </div>
       </motion.section>
+
+    {/* Our Journey Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+        >
+          Our Journey
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-12"
+        >
+          Born from a Vision to Simplify Job Applications, We’re Redefining How Careers Begin with AI Innovation.
+        </motion.p>
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <motion.div variants={fadeIn} className="lg:w-1/2">
+            <img
+              src={TeamImage}
+              alt="Our Beginnings"
+              className="rounded-2xl shadow-xl w-full object-cover h-64 lg:h-80 border border-gray-700/50"
+            />
+          </motion.div>
+          <motion.div variants={fadeIn} className="lg:w-1/2">
+            <p className="text-gray-300 leading-relaxed text-lg">
+              It All Started with a Simple Idea: Every Job Seeker Deserves a Resume that Shines. Frustrated by Generic Templates and Complex Tools, We Set Out to Create Something Different. Powered by DeepSeek-R1’s AI Brilliance, Spring Boot’s Robust Backbone, and React’s Sleek Interface, Our Platform Crafts Resumes that Tell Your Unique Story. From Humble Beginnings to Empowering Thousands, We’re Here to Fuel Your Career Success.
+            </p>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Technology Stack Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 bg-gradient-to-b from-gray-850 to-gray-900"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            variants={fadeIn}
+            className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+          >
+            Our Technology
+          </motion.h2>
+          <motion.p
+            variants={fadeIn}
+            className="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-12"
+          >
+            Cutting-Edge Tools Powering Your Resume Revolution.
+          </motion.p>
+          <motion.div
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <TechCard
+              icon={<FaCode className="text-teal-400 text-4xl" />}
+              title="Spring Boot"
+              desc="Our Robust Backend Delivers Lightning-Fast Performance, Ensuring Your Resumes Are Generated Seamlessly."
+            />
+            <TechCard
+              icon={<FaRocket className="text-teal-400 text-4xl" />}
+              title="React"
+              desc="A Dynamic Frontend Brings Your Resume to Life with Intuitive, Real-Time Customization."
+            />
+            <TechCard
+              icon={<FaBrain className="text-teal-400 text-4xl" />}
+              title="DeepSeek-R1"
+              desc="Our Advanced AI Understands Your Story, Crafting Resumes that Capture Your Unique Strengths."
+            />
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Meet Our Team Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+        >
+          Meet Our Team
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-12"
+        >
+          A Passionate Crew Dedicated to Your Career Success.
+        </motion.p>
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <TeamCard
+            name="Alex Carter"
+            role="AI Innovator"
+            desc="Leading Our DeepSeek-R1 Magic, Alex Ensures Every Resume Feels Personal."
+            icon={<FaBrain className="text-teal-400 text-2xl" />}
+          />
+          <TeamCard
+            name="Maya Patel"
+            role="Frontend Wizard"
+            desc="Crafting Sleek React Interfaces, Maya Makes Your Experience Effortless."
+            icon={<FaRocket className="text-teal-400 text-2xl" />}
+          />
+          <TeamCard
+            name="Liam Chen"
+            role="Backend Guru"
+            desc="Powering Our Platform with Spring Boot, Liam Keeps Things Running Smoothly."
+            icon={<FaCode className="text-teal-400 text-2xl" />}
+          />
+        </motion.div>
+      </motion.section>
+
+      {/* Our Impact Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 bg-gradient-to-b from-gray-900 to-teal-900/50"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            variants={fadeIn}
+            className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+          >
+            Our Impact
+          </motion.h2>
+          <motion.p
+            variants={fadeIn}
+            className="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-12"
+          >
+            Transforming Careers, One Resume at a Time.
+          </motion.p>
+          <motion.div
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            <ImpactCard
+              icon={<FaUsers className="text-teal-400 text-4xl" />}
+              value="100+"
+              label="Resumes Created"
+            />
+            <ImpactCard
+              icon={<FaGlobe className="text-teal-400 text-4xl" />}
+              value="10+"
+              label="Countries Reached"
+            />
+            <ImpactCard
+              icon={<FaStar className="text-teal-400 text-4xl" />}
+              value="4.8/5"
+              label="User Rating"
+            />
+            <ImpactCard
+              icon={<FaHeart className="text-teal-400 text-4xl" />}
+              value="Countless"
+              label="Dreams Fueled"
+            />
+          </motion.div>
+        </div>
+      </motion.section>
