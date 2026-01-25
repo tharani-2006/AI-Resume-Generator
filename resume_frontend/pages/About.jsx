@@ -255,3 +255,90 @@ const About = () => {
           </motion.div>
         </div>
       </motion.section>
+      
+      {/* Join Our Mission Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 text-center bg-gradient-to-b from-teal-900/50 to-gray-900"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-8"
+        >
+          Join Our Mission
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="text-lg text-gray-300 max-w-2xl mx-auto mb-12"
+        >
+          We’re Here to Empower Every Job Seeker with a Resume that Opens Doors. Be Part of Our Vision to Redefine Career Success.
+        </motion.p>
+        <motion.div variants={fadeIn} className="flex justify-center gap-4">
+          <Link
+            to="/generate-resume"
+            className="px-8 py-4 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2"
+          >
+            <FaRocket /> Create Your Resume
+          </Link>
+          <Link
+            to="/contact"
+            className="px-8 py-4 text-lg bg-transparent border border-teal-500 hover:bg-teal-500/20 text-teal-400 hover:text-white rounded-full transition-all duration-300"
+          >
+            Connect With Us
+          </Link>
+        </motion.div>
+      </motion.section>
+    </div>
+  );
+};
+
+// TechCard Component
+const TechCard = ({ icon, title, desc }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="bg-gray-800/60 p-6 rounded-2xl shadow-xl text-center flex flex-col items-center border border-gray-700/30 hover:border-teal-500/50 transition-all duration-300 group backdrop-blur-sm"
+      whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(13, 148, 136, 0.2)' }}
+    >
+      <div className="text-5xl text-teal-400 group-hover:text-teal-300 transition-colors">{icon}</div>
+      <h3 className="text-xl font-semibold mt-4 text-gray-100">{title}</h3>
+      <p className="text-gray-400 mt-2 text-sm">{desc}</p>
+    </motion.div>
+  );
+};
+
+// TeamCard Component
+const TeamCard = ({ name, role, desc, icon }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="bg-gray-800/60 p-6 rounded-2xl shadow-xl text-center border border-gray-700/30 hover:border-teal-500/50 transition-all duration-300 group backdrop-blur-sm"
+      whileHover={{ scale: 1.03 }}
+    >
+      <div className="flex justify-center mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold text-gray-100">{name}</h3>
+      <p className="text-sm text-teal-400">{role}</p>
+      <p className="text-gray-400 mt-2 text-sm">{desc}</p>
+    </motion.div>
+  );
+};
+
+// ImpactCard Component
+const ImpactCard = ({ icon, value, label }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="bg-gray-800/60 p-6 rounded-2xl shadow-xl text-center border border-gray-700/30 hover:border-teal-500/50 transition-all duration-300 group backdrop-blur-sm"
+      whileHover={{ scale: 1.05 }}
+    >
+      <div className="text-5xl text-teal-400 group-hover:text-teal-300 transition-colors">{icon}</div>
+      <h3 className="text-2xl font-bold mt-4 text-gray-100">{value}</h3>
+      <p className="text-gray-400 mt-2 text-sm">{label}</p>
+    </motion.div>
+  );
+};
+
+export default About;
