@@ -68,3 +68,161 @@ const Contact = () => {
           </motion.div>
         </div>
       </motion.section>
+      {/* Contact Form Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+        >
+          Send Us a Message
+        </motion.h2>
+        <motion.div
+          variants={fadeIn}
+          className="max-w-2xl mx-auto bg-gray-800/60 p-8 rounded-2xl shadow-xl border border-gray-700/30"
+        >
+          <form id="contact-form">
+            <div className="mb-6">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-teal-500"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-teal-500"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows="5"
+                className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-teal-500"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+            <motion.button
+              type="submit"
+              variants={fadeIn}
+              className="w-full px-6 py-3 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-lg shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center gap-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <FaPaperPlane /> Send Message
+            </motion.button>
+          </form>
+        </motion.div>
+      </motion.section>
+
+      {/* Contact Info Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 bg-gradient-to-b from-gray-850 to-gray-900"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            variants={fadeIn}
+            className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+          >
+            Our Contact Details
+          </motion.h2>
+          <motion.div
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <ContactCard
+              icon={<FaEnvelope className="text-teal-400 text-4xl" />}
+              title="Email Us"
+              desc="kunduvineet6@gmail.com"
+              link="mailto:kunduvineet6@gmail.com"
+            />
+            <ContactCard
+              icon={<FaPhone className="text-teal-400 text-4xl" />}
+              title="Call Us"
+              desc="+91 8882924671"
+              link="tel:8882924671"
+            />
+            <ContactCard
+              icon={<FaMapMarkerAlt className="text-teal-400 text-4xl" />}
+              title="Visit Us"
+              desc="New Delhi, India"
+              link="#"
+            />
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Social Connect Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 text-center bg-gradient-to-b from-teal-900/50 to-gray-900"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-8"
+        >
+          Connect With Us
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="text-lg text-gray-300 max-w-2xl mx-auto mb-12"
+        >
+          Follow Us on Social Media for Updates, Tips, and Career Insights.
+        </motion.p>
+        <motion.div
+          variants={staggerContainer}
+          className="flex justify-center gap-6"
+        >
+          <SocialLink
+            icon={<FaTwitter className="text-3xl" />}
+            href="https://twitter.com/resumegenix"
+          />
+          <SocialLink
+            icon={<FaLinkedin className="text-3xl" />}
+            href="https://linkedin.com/company/resumegenix"
+          />
+          <SocialLink
+            icon={<FaGithub className="text-3xl" />}
+            href="https://github.com/resumegenix"
+          />
+        </motion.div>
+      </motion.section>
+    </div>
+  );
+};
