@@ -226,3 +226,42 @@ const Contact = () => {
     </div>
   );
 };
+
+
+// ContactCard Component
+const ContactCard = ({ icon, title, desc, link }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="bg-gray-800/60 p-6 rounded-2xl shadow-xl text-center flex flex-col items-center border border-gray-700/30 hover:border-teal-500/50 transition-all duration-300 group backdrop-blur-sm"
+      whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(13, 148, 136, 0.2)' }}
+    >
+      <div className="text-5xl text-teal-400 group-hover:text-teal-300 transition-colors">{icon}</div>
+      <h3 className="text-xl font-semibold mt-4 text-gray-100">{title}</h3>
+      <a
+        href={link}
+        className="text-gray-400 mt-2 text-sm hover:text-teal-400 transition-colors"
+      >
+        {desc}
+      </a>
+    </motion.div>
+  );
+};
+
+// SocialLink Component
+const SocialLink = ({ icon, href }) => {
+  return (
+    <motion.a
+      variants={fadeIn}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-400 hover:text-teal-400 transition-colors"
+      whileHover={{ scale: 1.2 }}
+    >
+      {icon}
+    </motion.a>
+  );
+};
+
+export default Contact;
