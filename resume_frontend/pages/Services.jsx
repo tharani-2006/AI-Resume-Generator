@@ -82,7 +82,7 @@ const Services = () => {
           </motion.div>
         </div>
       </motion.section>
-      
+
       {/* Core Services Section */}
       <motion.section
         initial="hidden"
@@ -173,3 +173,142 @@ const Services = () => {
           </div>
         </div>
       </motion.section>
+
+      {/* User Feedback Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+        >
+          What Our Users Say
+        </motion.h2>
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <FeedbackCard
+            name="Anshu"
+            role="Software Engineer"
+            feedback="This Tool transformed my Resume in minutes! The AI suggestions were spot-on, and the Templates are Stunning."
+            rating={5}
+          />
+          <FeedbackCard
+            name="Mayank Arya"
+            role="Data Analyst"
+            feedback="I Love the Real-Time Previews. It made Tweaking my Resume so Easy, and the final PDF looked Professional."
+            rating={4}
+          />
+          <FeedbackCard
+            name="Shivam Sood"
+            role="Recent Graduate"
+            feedback="As a newbie, I was nervous, but this platform guided me step-by-step. Landed my first interview!"
+            rating={5}
+          />
+        </motion.div>
+      </motion.section>
+
+      {/* Get Started Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 text-center bg-gradient-to-b from-gray-900 to-teal-900/50"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-8"
+        >
+          Ready to Stand Out?
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="text-lg text-gray-300 max-w-2xl mx-auto mb-12"
+        >
+          Join thousands of job seekers who’ve unlocked their potential with our AI-powered resume generator. Your dream job is just a click away.
+        </motion.p>
+        <motion.div variants={fadeIn} className="flex justify-center gap-4">
+          <Link
+            to="/generate-resume"
+            className="px-8 py-4 text-lg bg-gradient-to-r from-teal-600 to-purple-600 hover:from-teal-700 hover:to-purple-700 text-white rounded-full shadow-lg transition-transform transform hover:scale-105 flex items-center gap-2"
+          >
+            <FaRocket /> Get Started
+          </Link>
+          <Link
+            to="/contact"
+            className="px-8 py-4 text-lg bg-transparent border border-teal-500 hover:bg-teal-500/20 text-teal-400 hover:text-white rounded-full transition-all duration-300"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
+      </motion.section>
+    </div>
+  );
+};
+
+// ServiceCard Component
+const ServiceCard = ({ icon, title, desc }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="bg-gray-800/60 p-6 rounded-2xl shadow-xl text-center flex flex-col items-center border border-gray-700/30 hover:border-teal-500/50 transition-all duration-300 group backdrop-blur-sm"
+      whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(13, 148, 136, 0.2)' }}
+    >
+      <div className="text-5xl text-teal-400 group-hover:text-teal-300 transition-colors">{icon}</div>
+      <h3 className="text-xl font-semibold mt-4 text-gray-100">{title}</h3>
+      <p className="text-gray-400 mt-2 text-sm">{desc}</p>
+    </motion.div>
+  );
+};
+
+// FeatureItem Component
+const FeatureItem = ({ icon, title, desc }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="flex items-start gap-4 bg-gray-800/30 p-4 rounded-xl border border-gray-700/30 hover:border-teal-500/30 transition-all"
+    >
+      <div className="mt-1">{icon}</div>
+      <div>
+        <h4 className="text-lg font-semibold text-gray-100">{title}</h4>
+        <p className="text-gray-400 text-sm">{desc}</p>
+      </div>
+    </motion.div>
+  );
+};
+
+// FeedbackCard Component
+const FeedbackCard = ({ name, role, feedback, rating }) => {
+  return (
+    <motion.div
+      variants={fadeIn}
+      className="bg-gray-800/60 p-6 rounded-2xl shadow-xl border border-gray-700/30 hover:border-teal-500/50 transition-all duration-300 backdrop-blur-sm"
+      whileHover={{ scale: 1.03 }}
+    >
+      <div className="flex items-center gap-2 mb-4">
+        <FaUsers className="text-teal-400 text-2xl" />
+        <div>
+          <h4 className="text-lg font-semibold text-gray-100">{name}</h4>
+          <p className="text-sm text-gray-400">{role}</p>
+        </div>
+      </div>
+      <p className="text-gray-300 text-sm italic mb-4">"{feedback}"</p>
+      <div className="flex gap-1">
+        {[...Array(5)].map((_, i) => (
+          <FaStar
+            key={i}
+            className={i < rating ? 'text-yellow-400' : 'text-gray-600'}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+export default Services;
