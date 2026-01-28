@@ -82,3 +82,94 @@ const Services = () => {
           </motion.div>
         </div>
       </motion.section>
+      
+      {/* Core Services Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 container mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <motion.h2
+          variants={fadeIn}
+          className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+        >
+          Our Signature Services
+        </motion.h2>
+        <motion.p
+          variants={fadeIn}
+          className="text-lg text-gray-300 text-center max-w-3xl mx-auto mb-12"
+        >
+          From AI-crafted content to Vibrant Templates, our Services are Designed to make your Resume Shine in a Crowded Market.
+        </motion.p>
+        <motion.div
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          <ServiceCard
+            icon={<FaRobot className="text-teal-400 text-4xl" />}
+            title="Smart Resume Creation"
+            desc="Our DeepSeek-R1 AI analyzes your input to generate resumes that are precise, professional, and uniquely tailored to your career goals."
+          />
+          <ServiceCard
+            icon={<FaPalette className="text-teal-400 text-4xl" />}
+            title="Vibrant Templates"
+            desc="Choose from a curated collection of modern, eye-catching templates built with React to suit any industry or role."
+          />
+          <ServiceCard
+            icon={<FaEye className="text-teal-400 text-4xl" />}
+            title="Instant Previews"
+            desc="See your resume come to life in real-time, with instant edits powered by our seamless Spring Boot backend."
+          />
+          <ServiceCard
+            icon={<FaFileAlt className="text-teal-400 text-4xl" />}
+            title="Flexible Exports"
+            desc="Download your resume in PDF, Word, or shareable links, ready to impress recruiters in any format they prefer."
+          />
+        </motion.div>
+      </motion.section>
+
+      {/* Unique Approach Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-20 bg-gradient-to-b from-gray-850 to-gray-900"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            variants={fadeIn}
+            className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent mb-12"
+          >
+            What Makes Us Unique
+          </motion.h2>
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <motion.div variants={fadeIn} className="lg:w-1/2">
+              <img
+                src={TeamImage}
+                alt="Our approach"
+                className="rounded-2xl shadow-xl w-full object-cover h-64 lg:h-96 border border-gray-700/50"
+              />
+            </motion.div>
+            <motion.div variants={staggerContainer} className="lg:w-1/2 space-y-6">
+              <FeatureItem
+                icon={<FaCheckCircle className="text-teal-400 text-2xl" />}
+                title="Human-Centric AI"
+                desc="Our AI doesn’t just write—it understands your story, weaving your skills and dreams into a resume that feels personal."
+              />
+              <FeatureItem
+                icon={<FaCheckCircle className="text-teal-400 text-2xl" />}
+                title="Lightning-Fast Workflow"
+                desc="From input to download, our Spring Boot backend ensures a smooth, lag-free experience, even with complex resumes."
+              />
+              <FeatureItem
+                icon={<FaCheckCircle className="text-teal-400 text-2xl" />}
+                title="Built for Everyone"
+                desc="Whether you’re a coder, artist, or executive, our platform adapts to your needs with intuitive React interfaces."
+              />
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
