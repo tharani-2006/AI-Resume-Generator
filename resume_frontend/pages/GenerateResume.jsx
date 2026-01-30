@@ -58,3 +58,66 @@ const GenerateResume = () => {
       website: "",
     },
   });
+const handleInputChange = (e, section = "personalInformation") => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [section]: {
+        ...prevData[section],
+        [name]: value,
+      },
+    }));
+  };
+
+  const handleArrayChange = (e, section, index) => {
+    const { value } = e.target;
+    setData((prevData) => {
+      const updatedArray = [...prevData[section]];
+      updatedArray[index] = value;
+      return { ...prevData, [section]: updatedArray };
+    });
+  };
+
+  const handleNestedArrayChange = (e, section, subsection, index) => {
+    const { value } = e.target;
+    setData((prevData) => {
+      const updatedArray = [...(prevData[section][subsection] || [])];
+      updatedArray[index] = value;
+      return {
+        ...prevData,
+        [section]: { ...prevData[section], [subsection]: updatedArray },
+      };
+    });
+  };
+
+  const handleGenerate = async () => {
+    try {
+      setLoading(true);
+      const responseData = await generateResume(description);
+      setData((prevData) => ({
+        ...prevData,
+        ...responseData?.data,
+        languages: {
+          ...defaultLanguages,
+          ...(responseData?.data?.languages || {}),
+        },
+      }));
+      setShowFormUI(true);
+      setShowPromptInput(false);
+      setShowResumeUI(false);
+      toast.success("Resume Generated Successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Error Generating Resume!");
+    } finally {
+      setLoading(false);
+      setDescription("");
+    }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setShowFormUI(false);
+    setShowPromptInput(false);
+    setShowResumeUI(true);
+  };
